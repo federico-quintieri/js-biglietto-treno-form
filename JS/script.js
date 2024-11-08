@@ -2,6 +2,8 @@
 const inpKM = document.getElementById("inpKm");
 const inpEta = document.getElementById("inpEtà");
 const formSconto = document.getElementById("formSconto");
+const ticketCost = document.getElementById("ticketCost");
+const colPrice = document.getElementById("colPrice");
 
 // Debug elementi presi
 // console.log(inpKM,inpEta,formSconto);
@@ -22,6 +24,9 @@ formSconto.addEventListener("submit", (event) => {
 
   //   Debug
   //   console.log(costoFinale);
+
+  ticketCost.innerText = "€ " + costoFinale;
+  colPrice.classList.remove("d-none");
 });
 
 /**
