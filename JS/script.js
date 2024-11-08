@@ -12,13 +12,16 @@ formSconto.addEventListener("submit", (event) => {
   // Debug
   //   console.log("Ciao sono dentro la callback");
 
-  const inpKmValue = inpKM.value.trim();
-  const inpEtaValue = inpEta.value.trim();
+  const inpKmValue = parseFloat(inpKM.value.trim());
+  const inpEtaValue = parseInt(inpEta.value.trim());
 
   //   Debug
-  //   console.log(inpKmValue,inpEtaValue);
+  //console.log(inpKmValue, inpEtaValue);
 
-  const costoFinale = calcolaPrezzo(inpKmValue, inpEtaValue);
+  const costoFinale = calcolaPrezzo(inpKmValue, inpEtaValue).toFixed(2);
+
+  //   Debug
+  //   console.log(costoFinale);
 });
 
 /**
@@ -34,7 +37,9 @@ function calcolaPrezzo(km, eta) {
     percSconto = 20;
   } else if (eta > 65) percSconto = 65;
 
-  const prezzoFinale = (km * 0.21) / 100 * percSconto;
+  const prezzoFinale = km * 0.21 - km * 0.21 * (percSconto / 100);
 
+  //   Debug
+  //   console.log(prezzoFinale);
   return prezzoFinale;
 }
